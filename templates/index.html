@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+  
+    <title>Home</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <link  rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body class="text-center">
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+              <div class="inner">
+                <h3>Scraping project</h3>
+                <p>The project is used to scrape information about graphics cards from e-shops and compared them based on the chip and price.</p>
+              </div>
+            </header>
+        
+        <main>
+            <p></p> 
+        </main>
+
+        <div class="container">
+            <div class="row">
+               
+            </div>
+            <div class="row">
+                    <div>
+                        <a href="/from_cheap">
+                            <button class="btn btn-lg btn-secondary">From the cheapest</button>
+                        </a>
+                        <br><br>
+                    </div>
+                    <div>
+                        <a href="/from_expensive">
+                        <button class="btn btn-lg btn-secondary">From the most expensive</button>
+                        </a>
+                        <br><br>
+                    </div>
+            </div>
+        </div>
+        <footer class="mastfoot mt-auto">
+            <form action="/find_graphics_cards">
+                <button class="btn btn-lg btn-secondary">Start scraping</button>
+            </form>
+        </footer>
+
+
+    </body>
+</html>

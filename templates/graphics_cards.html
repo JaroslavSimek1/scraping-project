@@ -1,0 +1,53 @@
+{% load static%}
+<html lang="en">
+<head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+        <link  rel="stylesheet" href="{% static 'css/style.css' %}">
+      </head>
+</head>
+
+<body>
+<form action="" method="POST">
+{% csrf_token %}
+Graphics chip name: <input type="text" name="g_chip" value= '{% if submitbutton == "Submit" %} {{ g_chip }} {% endif %}'/><br><br>
+<input class="btn btn-lg btn-secondary" type="Submit" name="Submit" value="find"/>
+
+</form>
+<main role="main" class="inner cover">
+{% if submitbutton == "Submit"  %}
+    {% for GraphicsCards in graphiccards %}
+        {% if GraphicsCards.graphics_chip ==  g_chip %}
+            <p> {{ GraphicsCards.graphics_chip}}</p>
+            <p> {{ GraphicsCards.name}}</p>
+            <p> {{ GraphicsCards.price}} Kč</p>
+            <a href="{{ GraphicsCards.url}}">url</a>
+            <br>
+
+         {% endif %}
+    {% endfor %}
+
+{% else %}
+    {% for GraphicsCards in graphiccards %}
+            <p> {{ GraphicsCards.graphics_chip}}</p>
+            <p> {{ GraphicsCards.name}}</p>
+            <p> {{ GraphicsCards.price}} Kč</p>
+            <a href="{{ GraphicsCards.url}}">url</a>
+            <br>
+    {% endfor %}
+{% endif %}
+</main>
+
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpbh-mt'},{'server':'p3plmcpnl487010'},{'id':'8437534'})
+</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+</body>>
+</html>
+
+
+
+
